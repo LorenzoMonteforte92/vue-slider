@@ -1,4 +1,6 @@
 //stampare nel DOM le immagini grandi facendo in modo che ci sia solo quella il cui indice corrisponde ad activeItem
+//stampare dinamicamente le thumbnail utilizzando v-for che prende una variabile che indica il singolo elemento
+
 
 const { createApp } = Vue;
 
@@ -33,5 +35,8 @@ createApp({
         };
     },
     methods: {
+        displayNextImg: function (){
+            activeImg++
+        }
     }
 }).mount('#app');
