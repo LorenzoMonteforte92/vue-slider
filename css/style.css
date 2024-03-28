@@ -41,6 +41,7 @@
 
 .thumb {
     height: calc(100% / 5);
+    width: 220px;
     opacity: 0.5;
 }
 
