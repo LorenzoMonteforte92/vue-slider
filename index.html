@@ -29,11 +29,14 @@
                 <div class="thumbs">
                     <div @click="displayPrevioustImg" class="prev"></div>
                     <div @click="displayNextImg" class="next"></div>
+                    
                     <div v-for="singleThumb, index in slides" 
                         class="thumb"
-                        :class="{active : activeImg === index }"
-                        @click="thumbActiveAtClick (index)"
-
+                        :class="{active: activeImg === index,
+                                 scale: isLarger && activeImg === index}"
+                        @click="thumbLargeAtClick(index)"
+                        @click="thumbActiveAtClick(index)"
+                        
                         >
                         <img :src="singleThumb.image" alt="singleThumb.title" />
                     </div>

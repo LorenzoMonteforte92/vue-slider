@@ -106,5 +106,6 @@ oppure i caratteri ∧ (&and;) e ∨ (&or;)
 }
 
 .scale{
-    transform: scale(1.5);
+    transform: scale(2);
+    opacity: 1;
 }

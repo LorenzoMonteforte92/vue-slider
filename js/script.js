@@ -76,15 +76,11 @@ createApp({
         stopAutoplay (){
             clearInterval(this.autoScroll);
         },
+        
         //enlarges thumbnail at click
-        // thumbLargeAtClick (){
-            
-        //     if(this.isLarger === false){
-        //         this.isLarger = true
-        //     } else {
-        //         this.isLarger = false
-        //     }
-        // },
+        thumbLargeAtClick: function (clickedIndex){
+           this.isLarger = !this.isLarger
+        },
     },
 
     mounted() {
