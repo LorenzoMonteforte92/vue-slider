@@ -6,6 +6,11 @@
 
 //solo la thumbnail corrispondende a activeImg deve essere a sua volta active
     //richiamare l'indice della thumbnail che deve essere uguale a activeImg
+
+
+//quando clicco sulla thumb l'immagine corrispondende diventa più grande
+    //devo selezionare l'immagine su cui ho cliccato
+    //aggiungere la classe scale
 const { createApp } = Vue;
 
 createApp({
@@ -36,6 +41,8 @@ createApp({
                 ],
 
             activeImg: 0,
+            isLarger: false,
+            autoScroll: null,
         };
     },
     methods: {
@@ -54,6 +61,34 @@ createApp({
             } else {
                 this.activeImg = this.slides.length - 1
             }
-        }
+        },
+
+        //activates thumnail at click
+        thumbActiveAtClick: function (clickedIndex){
+            this.activeImg = clickedIndex;
+        },
+        
+        StartAutoplay (){
+            this.autoScroll = setInterval(this.displayNextImg, 2000);
+        },
+
+        //at mouse enter the interval saved in autoscroll variable is stopped
+        stopAutoplay (){
+            clearInterval(this.autoScroll);
+        },
+        //enlarges thumbnail at click
+        // thumbLargeAtClick (){
+            
+        //     if(this.isLarger === false){
+        //         this.isLarger = true
+        //     } else {
+        //         this.isLarger = false
+        //     }
+        // },
+    },
+
+    mounted() {
+        this.StartAutoplay ()
     }
 }).mount('#app');
+
