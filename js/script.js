@@ -1,7 +1,11 @@
 //stampare nel DOM le immagini grandi facendo in modo che ci sia solo quella il cui indice corrisponde ad activeItem
 //stampare dinamicamente le thumbnail utilizzando v-for che prende una variabile che indica il singolo elemento
+//fare in modo che al click sulla freccia next la classe active passi all'immagine successiva
+        //aggiungere al pulsante un click event, collegarci una funzione che aumenti e diminuisca activeImg (che è collegata a all'indice delle immagini)
+        //fare carosello infinito
 
-
+//solo la thumbnail corrispondende a activeImg deve essere a sua volta active
+    //richiamare l'indice della thumbnail che deve essere uguale a activeImg
 const { createApp } = Vue;
 
 createApp({
@@ -36,7 +40,20 @@ createApp({
     },
     methods: {
         displayNextImg: function (){
-            activeImg++
+            if(this.activeImg < this.slides.length - 1){
+                this.activeImg ++
+            } else {
+                this.activeImg = 0
+            }
+            
+        },
+
+        displayPrevioustImg: function() {
+            if(this.activeImg > 0 ){
+                this.activeImg --
+            } else {
+                this.activeImg = this.slides.length - 1
+            }
         }
     }
 }).mount('#app');
