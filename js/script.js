@@ -79,7 +79,8 @@ createApp({
         
         //enlarges thumbnail at click
         thumbLargeAtClick: function (clickedIndex){
-           this.isLarger = !this.isLarger
+            this.activeImg = clickedIndex;
+            this.isLarger = !this.isLarger
         },
     },
 
